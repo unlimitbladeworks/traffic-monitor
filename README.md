@@ -5,6 +5,7 @@ traffic-monitor(基于高德地图的交通数据分析)
 就会异常的堵车如果通过数据监控分析每天指定路段在什么时间段相应的拥堵情况,即可合理控制时间.
 有时候很早出门,却堵车堵得依然快迟到,而有时出门时间晚了,却发现那个时间段的路况良好,和早出门最终到达目的地的时间相近。
 
+![amap](https://github.com/unlimitbladeworks/traffic-monitor/picture/map.png "高德地图样照")
 
 Environment(环境)
 ---
