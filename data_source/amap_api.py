@@ -11,6 +11,9 @@
 
     http://lbs.amap.com/api/webservice/gettingstarted 申请key值
 
+    http://lbs.amap.com/api/webservice/guide/api/georegeo#geo 地理编码
+
+    http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road 指定线路交通态势
 
 """
 
