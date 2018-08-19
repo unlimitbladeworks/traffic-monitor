@@ -12,4 +12,8 @@ Environment(环境)
 本项目为python编写的项目。
 
 - python3
+
+用到的库:
+
+- requests
 -
