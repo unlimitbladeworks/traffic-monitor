@@ -17,3 +17,15 @@ Environment(环境)
 
 - requests
 -
+
+Amap(高德地图)API网址
+---
+1.申请key值:
+![申请key值](http://lbs.amap.com/api/webservice/gettingstarted "申请key值")
+
+2.地理编码:
+![地理编码](http://lbs.amap.com/api/webservice/guide/api/georegeo#geo "地理编码")
+
+3.指定线路交通态势:
+![指定线路交通态势](http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road "指定线路交通态势")
+
