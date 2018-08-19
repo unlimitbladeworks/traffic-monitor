@@ -18,6 +18,11 @@ Environment(环境)
 - requests
 -
 
+coding之前的准备工作:
+
+- 登录高德地图官网,申请相关账号
+- 参考下面的高德API网址申请key值
+
 Amap(高德地图)API网址
 ---
 1.申请key值:
