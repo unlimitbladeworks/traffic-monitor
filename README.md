@@ -21,11 +21,14 @@ Environment(环境)
 Amap(高德地图)API网址
 ---
 1.申请key值:
-![申请key值](http://lbs.amap.com/api/webservice/gettingstarted "申请key值")
+
+[http://lbs.amap.com/api/webservice/gettingstarted](http://lbs.amap.com/api/webservice/gettingstarted)
 
 2.地理编码:
-![地理编码](http://lbs.amap.com/api/webservice/guide/api/georegeo#geo "地理编码")
+
+[http://lbs.amap.com/api/webservice/guide/api/georegeo#geo](http://lbs.amap.com/api/webservice/guide/api/georegeo#geo)
 
 3.指定线路交通态势:
-![指定线路交通态势](http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road "指定线路交通态势")
+
+[http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road](http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road)
 
