@@ -25,8 +25,7 @@ from requests import RequestException
 class ReadMapInfo:
 
     # 请求url方法
-    @staticmethod
-    def request_url(url):
+    def request_url(self, url):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'
         }
@@ -40,18 +39,17 @@ class ReadMapInfo:
             return None
 
     # 获取地理编码方法,城市、具体路段、开发者key
-    @staticmethod
-    def read_geo(city, address, key):
+    def read_geo(self, city, address, key):
         """ 请求地理编码的url地址 """
         url = f'https://restapi.amap.com/v3/geocode/geo?city={city}&address={address}&&key={key}'
-        r = ReadMapInfo.request_url(url)
+        r = self.request_url(url)
         print(r)
 
     # 获取指定路线交通趋势
-    @staticmethod
-    def read_road():
+    def read_road(self):
         pass
 
 
 if __name__ == '__main__':
-    ReadMapInfo.read_geo('北京', '官庄路', '')
+    readMapInfo = ReadMapInfo()
+    readMapInfo.read_geo('北京', '方恒国际中心A座', '439b13eba868071ba3d294a07c2bc573')
