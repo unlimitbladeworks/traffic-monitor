@@ -11,7 +11,7 @@ Environment(环境)
 ---
 本项目为python编写的项目。
 
-- python3
+- python3.6+
 
 用到的库:
 
