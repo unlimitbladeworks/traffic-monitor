@@ -45,20 +45,22 @@ class ReadMapInfo:
         url = f'https://restapi.amap.com/v3/geocode/geo?city={city}&address={address}&&key={key}'
         r = self.request_url(url)
         result_json = self.parse_json(r)
-        # 如果请求成功则进行处理,否则返回空
+        # 如果请求成功则进行处理,否则返回空,获取城市标识
         if result_json['status'] == '1':
             geocodes_list = list(result_json['geocodes'])
             geocodes_json = geocodes_list.pop()
-            citycode = geocodes_json['citycode']
             adcode = geocodes_json['adcode']
-            location = geocodes_json['location']
-            return citycode, adcode, location
+            return adcode
         else:
             return None
 
     # 获取指定路线交通趋势
-    def read_road(self):
-        pass
+    def read_road(self, city, address, key, level=5):
+        adcode = self.read_geo(city, address, key)
+        """ 请求指定路线交通趋势的url地址 """
+        url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
+        r = self.request_url(url)
+        print(r)
 
     # 解析json函数
     def parse_json(self, content_json):
@@ -68,4 +70,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_geo('北京', '方恒国际中心A座', '')
+    readMapInfo.read_road('北京', '长安街', '', level=3)
