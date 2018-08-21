@@ -39,16 +39,20 @@ class ReadMapInfo:
             print('请求url返回错误异常')
             return None
 
-    # 获取地理编码方法,城市、具体路段、开发者key
+    # 获取地理编码方法,args:城市、具体路段、开发者key
     def read_geo(self, city, address, key):
         """ 请求地理编码的url地址 """
         url = f'https://restapi.amap.com/v3/geocode/geo?city={city}&address={address}&&key={key}'
         r = self.request_url(url)
         result_json = self.parse_json(r)
         # 如果请求成功则进行处理,否则返回空
-        if result_json['status'] == 1:
-            # TODO 待添加
-            pass
+        if result_json['status'] == '1':
+            geocodes_list = list(result_json['geocodes'])
+            geocodes_json = geocodes_list.pop()
+            citycode = geocodes_json['citycode']
+            adcode = geocodes_json['adcode']
+            location = geocodes_json['location']
+            return citycode, adcode, location
         else:
             return None
 
