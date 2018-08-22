@@ -50,21 +50,23 @@ class ReadMapInfo:
             geocodes_list = list(result_json['geocodes'])
             geocodes_json = geocodes_list.pop()
             adcode = geocodes_json['adcode']
-            return adcode
+            location = geocodes_json['location']
+            return adcode, location
         else:
             return None
 
-    # 获取指定路线交通趋势
-    def read_road(self, city, address, key, select_road_mode):
+    # 获取指定路线交通趋势,道路模式默认矩形
+    def read_road(self, city, address, key, select_road_mode='rectangle'):
+        adcode, location = self.read_geo(city, address, key)
         """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
         if select_road_mode == 'rectangle':
             pass
         if select_road_mode == 'circle':
-            pass
+            # 半径参数默认1000m
+            url = f'https://restapi.amap.com/v3/traffic/status/circle?location={location}&key={key}'
         if select_road_mode == 'road':
-            adcode = self.read_geo(city, address, key)
             """ 请求指定路线交通趋势的url地址 """
-            url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
+            url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&key={key}'
         r = self.request_url(url)
         print(r)
 
@@ -76,4 +78,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_road('北京', '北京大厦', '')
+    readMapInfo.read_road('北京', '北京长安街', '')
