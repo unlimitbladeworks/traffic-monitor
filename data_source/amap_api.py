@@ -55,10 +55,16 @@ class ReadMapInfo:
             return None
 
     # 获取指定路线交通趋势
-    def read_road(self, city, address, key, level=5):
-        adcode = self.read_geo(city, address, key)
-        """ 请求指定路线交通趋势的url地址 """
-        url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
+    def read_road(self, city, address, key, select_road_mode):
+        """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
+        if select_road_mode == 'rectangle':
+            pass
+        if select_road_mode == 'circle':
+            pass
+        if select_road_mode == 'road':
+            adcode = self.read_geo(city, address, key)
+            """ 请求指定路线交通趋势的url地址 """
+            url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
         r = self.request_url(url)
         print(r)
 
@@ -70,4 +76,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_road('北京', '长安街', '', level=3)
+    readMapInfo.read_road('北京', '北京大厦', '')
