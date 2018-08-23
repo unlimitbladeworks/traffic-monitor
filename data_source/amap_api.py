@@ -28,7 +28,7 @@ class ReadMapInfo:
     # 请求url方法
     def request_url(self, url):
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'
+            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
         }
         try:
             r = requests.get(url=url, headers=headers)
@@ -60,12 +60,13 @@ class ReadMapInfo:
         adcode, location = self.read_geo(city, address, key)
         """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
         if select_road_mode == 'rectangle':
-            pass
+            # 矩形url查询经度和纬度使用","分隔坐标之间使用";"分隔.例如：x1,y1;x2,y2
+            url = f'https://restapi.amap.com/v3/traffic/status/rectangle?rectangle={rectangle}&key={key}'
         if select_road_mode == 'circle':
             # 半径参数默认1000m
             url = f'https://restapi.amap.com/v3/traffic/status/circle?location={location}&key={key}'
         if select_road_mode == 'road':
-            """ 请求指定路线交通趋势的url地址 """
+            # 请求指定路线交通趋势的url地址
             url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&key={key}'
         r = self.request_url(url)
         print(r)
@@ -78,4 +79,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_road('北京', '北京长安街', '')
+    readMapInfo.read_road('北京', '福润四季', '', select_road_mode='road')
