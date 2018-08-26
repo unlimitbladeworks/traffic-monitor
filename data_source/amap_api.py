@@ -85,11 +85,17 @@ class ReadMapInfo:
                         3.road      (指定路线交通态势) ***此方式貌似有Bug(待解决)***
         """
         for arg_name in kwargs:
-            setattr(arg_name, kwargs[arg_name])
+            setattr(self, arg_name, kwargs[arg_name])
 
         """ 若有参数传入,则选择客户端的参数,否则默认矩形区域交通态势 """
         if kwargs['select_road_mode']:
             select_road_mode = kwargs['select_road_mode']
+        else:
+            select_road_mode = 'rectangle'
+
+        adcode, location = self.read_geo(city, address)
+        """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
+        if select_road_mode == 'rectangle':
             """ 矩形的坐标入参,规则:左下右上顶点坐标对。() """
             if kwargs['rectangle']:
                 rectangle = kwargs['rectangle']
@@ -100,12 +106,6 @@ class ReadMapInfo:
                     '      矩形对角线不能超过10公里两个坐标对之间用”;”\n'
                     '      间隔xy之间用”,”间隔!\n'
                     '例如:(116.351147,39.966309;116.357134,39.968727)')
-        else:
-            select_road_mode = 'rectangle'
-
-        adcode, location = self.read_geo(city, address)
-        """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
-        if select_road_mode == 'rectangle':
             # 矩形url查询经度和纬度使用","分隔坐标之间使用";"分隔.例如：x1,y1;x2,y2
             url = f'https://restapi.amap.com/v3/traffic/status/rectangle?rectangle={rectangle}&key={self.key}'
         if select_road_mode == 'circle':
@@ -119,18 +119,17 @@ class ReadMapInfo:
 
     # 通过拾取器获取详细的坐标,通过关键词进行搜索,返回具体详细坐标
     def read_picker(self, city, keyword='天安门'):
-        # AMap 地图拾取后台请求地址:
-        url = 'https://restapi.amap.com/v3/place/text'
-
-        data = {
-            's': 'rsv3',
-            'language': 'zh_cn',
-            'key': '8325164e247e15eea68b59e89200988b',
-            'appname': 'https://lbs.amap.com/console/show/picker',
-            'csid': '99F8A6BF-BF82-4E40-8036-9F0692F0CEB1',
-            'keyword': keyword
-        }
-        result_json = self.request_url_post(url, data)
+        # 获取城市的编码
+        city_adcode_json = util.read_city_adcode().replace('\n', '').replace('\t', '')
+        result_city_adcode_json = self.parse_json(city_adcode_json)
+        cities_list = result_city_adcode_json['cities']
+        for city_dict in cities_list:
+            if city in city_dict.values():
+                city_adcode = city_dict['adcode']
+        # POI 查询(关键词搜索)
+        url = f'https://restapi.amap.com/v3/place/text?keywords={keyword}&city={city_adcode}&key={self.key}&extensions=all'
+        result_json = self.request_url_get(url)
+        print(result_json)
         pass
 
     # 解析json函数
@@ -141,6 +140,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    # readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573', select_road_mode='road', level=6)
-    # readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573')
-    readMapInfo.read_picker()
+    readMapInfo.read_picker('北京市', keyword='长安街')
