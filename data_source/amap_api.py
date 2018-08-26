@@ -26,13 +26,27 @@ import json
 
 # 获取地图信息类
 class ReadMapInfo:
-    # 请求url方法
-    def request_url(self, url):
+    # 请求url方法get方法
+    def request_url_get(self, url):
         headers = {
             'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
         }
         try:
-            r = requests.get(url=url, headers=headers)
+            r = requests.get(url=url, headers=headers, timeout=30)
+            if r.status_code == 200:
+                return r.text
+            return None
+        except RequestException:
+            print('请求url返回错误异常')
+            return None
+
+    # 请求url方法post方法
+    def request_url_post(self, url, data):
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'
+        }
+        try:
+            r = requests.post(url=url, headers=headers, data=data, timeout=30)
             if r.status_code == 200:
                 return r.text
             return None
@@ -44,7 +58,7 @@ class ReadMapInfo:
     def read_geo(self, city, address, key):
         """ 请求地理编码的url地址 """
         url = f'https://restapi.amap.com/v3/geocode/geo?city={city}&address={address}&&key={key}'
-        r = self.request_url(url)
+        r = self.request_url_get(url)
         result_json = self.parse_json(r)
         # 如果请求成功则进行处理,否则返回空,获取城市标识
         if result_json['status'] == '1':
@@ -79,8 +93,14 @@ class ReadMapInfo:
         if select_road_mode == 'road':
             # 请求指定路线交通趋势的url地址
             url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
-        r = self.request_url(url)
+        r = self.request_url_get(url)
         print(r)
+
+    # 通过拾取器获取详细的坐标,通过关键词进行搜索,返回具体详细坐标
+    def read_picker(self, keyword='天安门'):
+        url = 'https://restapi.amap.com/v3/place/text'
+        self.request_url_post(url)
+        pass
 
     # 解析json函数
     def parse_json(self, content_json):
@@ -90,5 +110,6 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573', select_road_mode='road', level=6)
-    readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573')
+    # readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573', select_road_mode='road', level=6)
+    # readMapInfo.read_road('北京', '管庄路', '439b13eba868071ba3d294a07c2bc573')
+    readMapInfo.read_picker()
