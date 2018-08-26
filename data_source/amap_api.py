@@ -81,7 +81,22 @@ class ReadMapInfo:
         for key in kwargs:
             setattr(key, kwargs[key])
 
-        select_road_mode = kwargs['select_road_mode']
+        """ 若有参数传入,则选择客户端的参数,否则默认矩形区域交通态势 """
+        if kwargs['select_road_mode']:
+            select_road_mode = kwargs['select_road_mode']
+            """ 矩形的坐标入参,规则:左下右上顶点坐标对。() """
+            if kwargs['rectangle']:
+                rectangle = kwargs['rectangle']
+            else:
+                raise Exception(
+                    '既然选择了矩形区域交通态势,就必须传入rectangle参数!\n'
+                    '写法为:左下右上顶点坐标对。\n'
+                    '      矩形对角线不能超过10公里两个坐标对之间用”;”\n'
+                    '      间隔xy之间用”,”间隔!\n'
+                    '例如:(116.351147,39.966309;116.357134,39.968727)')
+        else:
+            select_road_mode = 'rectangle'
+
         adcode, location = self.read_geo(city, address, key)
         """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
         if select_road_mode == 'rectangle':
@@ -92,7 +107,7 @@ class ReadMapInfo:
             url = f'https://restapi.amap.com/v3/traffic/status/circle?location={location}&key={key}'
         if select_road_mode == 'road':
             # 请求指定路线交通趋势的url地址
-            url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&level={level}&key={key}'
+            url = f'https://restapi.amap.com/v3/traffic/status/road?name={address}&adcode={adcode}&key={key}'
         r = self.request_url_get(url)
         print(r)
 
