@@ -37,3 +37,9 @@ Amap(高德地图)API网址
 
 [http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road](http://lbs.amap.com/api/webservice/guide/api/trafficstatus#road)
 
+4.地图拾取器(网页,可以手工处理,也可用python调用获取返回值):
+
+网页:
+[https://lbs.amap.com/console/show/picker](https://lbs.amap.com/console/show/picker)
+F12后台请求地址:
+https://restapi.amap.com/v3/place/text
