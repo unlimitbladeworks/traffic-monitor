@@ -9,6 +9,12 @@
 @desc: traffic-monitor main function
 
 """
+import os
+import sys
+
+""" 加载包变量 """
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_PATH)
 
 
 # 入口函数
