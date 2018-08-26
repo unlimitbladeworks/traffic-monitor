@@ -9,6 +9,8 @@
 
 @desc: 高德地图英文名称
 
+用到的官方API:
+
     http://lbs.amap.com/api/webservice/gettingstarted 申请key值
 
     http://lbs.amap.com/api/webservice/guide/api/georegeo#geo 地理编码
