@@ -132,16 +132,20 @@ class ReadMapInfo:
         result_json = self.parse_json(poi_json)
         pois = result_json['pois']
         for path_detail in pois:
-            print('ID:' + path_detail['id'] + ',name:' + path_detail['name'] + '\n')
+            print('ID:' + path_detail['id'] + ',name:' + path_detail['name'] + ';')
         id_1 = input('请选择您要输入的起始位置id:\n')
         id_2 = input('请选择您要输入的终止位置id:\n')
-        if id_1 and id_2:
-            pass
-        else:
-            pass
-
+        for path_detail in pois:
+            if id_1 == path_detail['id']:
+                location_1 = path_detail['location']
+            if id_2 in path_detail['id']:
+                location_2 = path_detail['location']
+        try:
+            location_tuple = (location_1,location_2)
+            return location_tuple
+        except Exception as e:
+            print ('您输入的两次ID有误!请检查!错误:',e)
         pass
-
     # 解析json函数
     def parse_json(self, content_json):
         result_json = json.loads(content_json)
