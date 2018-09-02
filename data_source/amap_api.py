@@ -128,8 +128,18 @@ class ReadMapInfo:
                 city_adcode = city_dict['adcode']
         # POI 查询(关键词搜索)
         url = f'https://restapi.amap.com/v3/place/text?keywords={keyword}&city={city_adcode}&key={self.key}&extensions=all'
-        result_json = self.request_url_get(url)
-        print(result_json)
+        poi_json = self.request_url_get(url)
+        result_json = self.parse_json(poi_json)
+        pois = result_json['pois']
+        for path_detail in pois:
+            print('ID:' + path_detail['id'] + ',name:' + path_detail['name'] + '\n')
+        id_1 = input('请选择您要输入的起始位置id:\n')
+        id_2 = input('请选择您要输入的终止位置id:\n')
+        if id_1 and id_2:
+            pass
+        else:
+            pass
+
         pass
 
     # 解析json函数
@@ -140,4 +150,4 @@ class ReadMapInfo:
 
 if __name__ == '__main__':
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_picker('北京市', keyword='长安街')
+    readMapInfo.read_picker('北京市', keyword='天安门')
