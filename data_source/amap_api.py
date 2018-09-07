@@ -91,7 +91,7 @@ class ReadMapInfo:
         if kwargs['select_road_mode']:
             select_road_mode = kwargs['select_road_mode']
         else:
-            select_road_mode = 'rectangle'
+            select_road_mode = 'road'
 
         adcode, location = self.read_geo(city, address)
         """ 根据客户端传入的标识选择不同的道路模式:rectangle(矩形),circle(圆形),road(指定路线)"""
@@ -100,7 +100,7 @@ class ReadMapInfo:
             if kwargs['rectangle']:
                 rectangle = kwargs['rectangle']
             else:
-                raise Exception(
+                print(
                     '既然选择了矩形区域交通态势,就必须传入rectangle参数!\n'
                     '写法为:左下右上顶点坐标对。\n'
                     '      矩形对角线不能超过10公里两个坐标对之间用”;”\n'
