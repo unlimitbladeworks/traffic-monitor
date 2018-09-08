@@ -17,6 +17,7 @@ Environment(环境)
 
 - requests
 - json
+- APScheduler(定时任务)
 
 coding之前的准备工作:
 
