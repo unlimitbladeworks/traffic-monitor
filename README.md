@@ -18,6 +18,7 @@ Environment(环境)
 - requests
 - json
 - APScheduler(定时任务)
+- pychart
 
 coding之前的准备工作:
 
