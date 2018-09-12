@@ -31,8 +31,10 @@ def hand_job():
     readMapInfo.read_road('北京市', '西长安街', select_road_mode='rectangle', rectangle=rectangle)
 
 
-def my_job():
-    print('hello world!')
+# 自动任务,手动将坐标获取后进行数据提取
+def auto_job():
+    readMapInfo = ReadMapInfo()
+    readMapInfo.read_road('北京市', '西长安街', select_road_mode='rectangle', rectangle='your rode location')
 
 
 # 入口函数
@@ -40,7 +42,7 @@ def main():
     # 基于quartz的定时任务调度器
     scheduler = BlockingScheduler()
     """ FIELD_NAMES = ('year', 'month', 'day', 'week', 'day_of_week', 'hour', 'minute', 'second') """
-    scheduler.add_job(my_job, 'cron', second='0/2', id='my_job_id')
+    scheduler.add_job(auto_job, 'cron', second='0/2', id='my_job_id')
     try:
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
