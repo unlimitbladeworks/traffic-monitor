@@ -34,7 +34,9 @@ def hand_job():
 # 自动任务,手动将坐标获取后进行数据提取
 def auto_job():
     readMapInfo = ReadMapInfo()
-    readMapInfo.read_road('北京市', '西长安街', select_road_mode='rectangle', rectangle='your rode location')
+    result_json = readMapInfo.read_road('北京市', '西长安街', select_road_mode='rectangle', rectangle='your rode location')
+    traffic_status = readMapInfo.parse_json(result_json)
+    print(traffic_status)
 
 
 # 入口函数
