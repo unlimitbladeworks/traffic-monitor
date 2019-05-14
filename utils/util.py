@@ -19,7 +19,6 @@ def read_key():
     key_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'key')
     with open(key_path, 'r', encoding='utf-8') as f:
         key = f.read()
-        f.close()
     return key
 
 
