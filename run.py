@@ -44,11 +44,11 @@ def main():
     # 基于quartz的定时任务调度器
     scheduler = BlockingScheduler()
     """ FIELD_NAMES = ('year', 'month', 'day', 'week', 'day_of_week', 'hour', 'minute', 'second') """
-    scheduler.add_job(auto_job, 'cron', second='0/2', id='my_job_id')
+    scheduler.add_job(auto_job, 'cron', second='0/2', id='auto_job_id')
     try:
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
-        scheduler.remove_job('my_job_id')
+        scheduler.remove_job('auto_job_id')
 
 
 if __name__ == '__main__':
