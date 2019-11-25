@@ -50,3 +50,15 @@ Amap(高德地图)API网址
 
 F12后台请求地址（实际上就是请求的POI搜索）:
 https://restapi.amap.com/v3/place/text
+
+Todo List
+---
+
+- [ ] 重构代码迁移到 flask 项目上
+    - [x] 改为 flask 项目结构
+    - [ ] 新增前端页面
+    - [ ] 原 run.py 改动 flask 启动脚本, 现 run.py 改为业务模块脚本
+    - [ ] 迁移现有的目录结构到新结构上
+    
+- [ ] 持续完善 markdown 文档
+    - [ ] 待完善
