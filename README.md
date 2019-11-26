@@ -54,6 +54,10 @@ https://restapi.amap.com/v3/place/text
 Todo List
 ---
 
+master分支暂时不动,保证程序供其他人运行。。
+
+新切dev分支，改动在dev分支上修改，最后合并。
+
 - [ ] 重构代码迁移到 flask 项目上
     - [x] 改为 flask 项目结构
     - [ ] 新增前端页面
