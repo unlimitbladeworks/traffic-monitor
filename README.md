@@ -54,7 +54,7 @@ https://restapi.amap.com/v3/place/text
 Todo List
 ---
 
-master分支暂时不动,保证程序供其他人运行。
+master分支暂时不动,保证程序供其他人运行。。
 
 新切dev分支，改动在dev分支上修改，最后合并。
 
