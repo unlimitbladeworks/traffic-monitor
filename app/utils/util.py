@@ -13,8 +13,8 @@
 import os
 
 
-# 持久化key,便于读取
 def read_key():
+    """ 持久化key,便于读取 """
     # 获取key文件的绝对路径
     key_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'key')
     with open(key_path, 'r', encoding='utf-8') as f:
@@ -23,9 +23,14 @@ def read_key():
 
 
 def read_city_adcode():
+    """ 读取本地城市 json 码 """
     city_adcode_path = os.path.join(
         os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'geography_json'), 'city_adcode_json')
     with open(city_adcode_path, 'r', encoding='utf-8') as f:
         city_adcode_json = f.read()
-        f.close()
     return city_adcode_json
+
+
+if __name__ == '__main__':
+    print(read_city_adcode())
+    print(read_key())

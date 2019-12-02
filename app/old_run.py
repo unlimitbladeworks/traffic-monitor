@@ -2,17 +2,17 @@
 """
 @author: sy
 
-@file: run.py
+@file: old_run.py
 
 @time: 2018年08月21日23:04:01
 
-@desc: traffic-monitor main function
+@desc: traffic-monitor 老的主方法,暂时先保留
 
 """
 import os
 import sys
 
-from data_source.amap_api import ReadMapInfo
+from app.data_source import ReadMapInfo
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 """ 加载包变量 """
