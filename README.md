@@ -18,12 +18,15 @@ Environment(环境)
 
 - python3.6+
 
-用到的库:
+安装用到的库:
 
-- requests
-- json
-- APScheduler(定时任务)
-- pyecharts
+```
+pip install -r requirements.txt 
+```
+
+gunicorn、gevent ：用于后续 web 部署。 
+
+PS: 如果安装依赖库慢，将自己的 pip 源改为国内镜像即可。
 
 coding之前的准备工作:
 
