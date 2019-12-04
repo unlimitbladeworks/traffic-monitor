@@ -16,7 +16,7 @@ import os
 def read_key():
     """ 持久化key,便于读取 """
     # 获取key文件的绝对路径
-    key_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'key')
+    key_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'user_key')
     with open(key_path, 'r', encoding='utf-8') as f:
         key = f.read()
     return key

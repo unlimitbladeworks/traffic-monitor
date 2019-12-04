@@ -12,7 +12,7 @@
 import os
 import sys
 
-from app.data_source import ReadMapInfo
+from app.data_source.amap_api import ReadMapInfo
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 """ 加载包变量 """
@@ -52,4 +52,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    hand_job()
