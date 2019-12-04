@@ -64,7 +64,6 @@ https://restapi.amap.com/v3/place/text
 运行使用
 ---
 
-fork本项目到本地。
 
 由于结构目录已调整，有想在原有基础修改源码的同学，可以打开 app 目录下的 old_run.py 即可运行。
 
@@ -78,7 +77,7 @@ Todo List
 - [ ] 重构代码迁移到 flask 项目上
     - [x] 改为 flask 项目结构
     - [ ] 新增前端页面
-    - [ ] 原 run.py 改动 flask 启动脚本, 现 run.py 改为业务模块脚本
+    - [x] 原 run.py 改动 flask 启动脚本, 现 old_run.py 改为业务模块脚本
     - [ ] 迁移现有的目录结构到新结构上
     
 - [ ] 持续完善 markdown 文档
