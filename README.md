@@ -61,8 +61,9 @@ Amap(高德地图)API网址
 F12后台请求地址（实际上就是请求的POI搜索）:
 https://restapi.amap.com/v3/place/text
 
+<hr>
 
-也可参考之前写过的文章：
+详情参考之前写过的文章：
 
 - [Python玩转高德地图API（一）](https://mp.weixin.qq.com/s/7Ktv-cYNNT82ECVGevUyzg)
 - [Python玩转高德地图API（二）](https://mp.weixin.qq.com/s/8rOBebnJxQZ3qBPUVmrGqg)
