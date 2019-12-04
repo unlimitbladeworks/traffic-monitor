@@ -51,6 +51,12 @@ Amap(高德地图)API网址
 F12后台请求地址（实际上就是请求的POI搜索）:
 https://restapi.amap.com/v3/place/text
 
+运行使用
+---
+
+fork本项目到本地。由于结构目录以调整，所以打开 app 目录下的 old_run.py 即可运行。
+
+
 Todo List
 ---
 
