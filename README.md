@@ -59,7 +59,9 @@ https://restapi.amap.com/v3/place/text
 运行使用
 ---
 
-fork本项目到本地。由于结构目录已调整，有想在原有基础修改源码的同学，可以打开 app 目录下的 old_run.py 即可运行。
+fork本项目到本地。
+
+由于结构目录已调整，有想在原有基础修改源码的同学，可以打开 app 目录下的 old_run.py 即可运行。
 
 
 
