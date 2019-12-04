@@ -1,5 +1,10 @@
 traffic-monitor(基于高德地图的交通数据分析)
 ===
+[![Python](https://img.shields.io/badge/python-v3.6+%2B-blue.svg)](https://www.python.org/)
+[![build](https://img.shields.io/badge/build-passing-green.svg)](https://github.com/unlimitbladeworks/sy-pynotebook)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+
 
 设计需求在于每天上班早高峰期,每次都提前出门,虽然有地图可以实时查看路况,但是再过一阵时间
 就会异常的堵车如果通过数据监控分析每天指定路段在什么时间段相应的拥堵情况,即可合理控制时间.
@@ -54,7 +59,8 @@ https://restapi.amap.com/v3/place/text
 运行使用
 ---
 
-fork本项目到本地。由于结构目录以调整，所以打开 app 目录下的 old_run.py 即可运行。
+fork本项目到本地。由于结构目录已调整，有想在原有基础修改源码的同学，可以打开 app 目录下的 old_run.py 即可运行。
+
 
 
 Todo List
