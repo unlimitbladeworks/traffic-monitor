@@ -24,9 +24,11 @@ Environment(环境)
 pip install -r requirements.txt 
 ```
 
-gunicorn、gevent ：用于后续 web 部署。 
+requirements 中涉及到的 gunicorn、gevent ：用于后续 web 部署。 
 
 PS: 如果安装依赖库慢，将自己的 pip 源改为国内镜像即可。
+
+<hr>
 
 coding之前的准备工作:
 
