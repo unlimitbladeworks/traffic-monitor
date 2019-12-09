@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>交通路况数据分析</title>
+
+    <meta name="description" content="在线交通路况数据分析">
+    <meta name="author" content="大咪sssyyy!">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <br><br><br>
+                    <h1 class="text-black mb-0 text-2xl">在线交通路况 数据分析</h1>
+                    <h2>
+                        <br>
+                    </h2>
+                    <p>
+                        设计需求在于每天上班早高峰期,每次都提前出门,虽然有地图可以实时查看路况,但是再过一阵时间
+                        就会异常的堵车如果通过数据监控分析每天指定路段在什么时间段相应的拥堵情况,即可合理控制时间.
+                        有时候很早出门,却堵车堵得依然快迟到,而有时出门时间晚了,却发现那个时间段的路况良好,和早出门最终到达目的地的时间相近。
+                    </p>
+                    <p>
+                        <a class="btn" href="https://github.com/unlimitbladeworks/traffic-monitor">github 开源项目地址 »</a>
+                    </p>
+                    <p>
+                        <img alt="北京地图" class="img-responsive center-block rounded" style="max-width:100%;"
+                             src="https://s2.ax1x.com/2019/12/09/QwS7Yn.png"
+                        >
+                    </p>
+                    <br><br>
+                    <form role="form" class="form-inline">
+                        <div class="form-group">
+
+                            <label for="exampleInputStart">
+                                出发地：&nbsp;&nbsp;
+                            </label>
+                            <input type="text" class="form-control" id="starting">
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="form-group">
+
+                            <label for="exampleInputDestination">
+                                目的地：&nbsp;&nbsp;
+                            </label>
+                            <input type="text" class="form-control" id="destination">
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">
+                            开始分析
+                        </button>
+                    </form>
+                    <br><br>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Product
+                            </th>
+                            <th>
+                                Payment Taken
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Default
+                            </td>
+                        </tr>
+                        <tr class="table-active">
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Approved
+                            </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                02/04/2012
+                            </td>
+                            <td>
+                                Declined
+                            </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                03/04/2012
+                            </td>
+                            <td>
+                                Pending
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                04/04/2012
+                            </td>
+                            <td>
+                                Call in to confirm
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination align-self-center">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#">Previous</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">4</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">5</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
