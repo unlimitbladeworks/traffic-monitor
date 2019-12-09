@@ -18,17 +18,17 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 bg">
             <div class="row">
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8">
                     <br><br><br>
-                    <h1 class="text-black mb-0 text-2xl">在线交通路况 数据分析</h1>
+                    <h1 class="text-white mb-0 text-2xl">在线交通路况 数据分析</h1>
                     <h2>
                         <br>
                     </h2>
-                    <p>
+                    <p class="text-white">
                         设计需求在于每天上班早高峰期,每次都提前出门,虽然有地图可以实时查看路况,但是再过一阵时间
                         就会异常的堵车如果通过数据监控分析每天指定路段在什么时间段相应的拥堵情况,即可合理控制时间.
                         有时候很早出门,却堵车堵得依然快迟到,而有时出门时间晚了,却发现那个时间段的路况良好,和早出门最终到达目的地的时间相近。
@@ -45,7 +45,7 @@
                     <form role="form" class="form-inline">
                         <div class="form-group">
 
-                            <label for="exampleInputStart">
+                            <label for="exampleInputStart" class="text-white">
                                 出发地：&nbsp;&nbsp;
                             </label>
                             <input type="text" class="form-control" id="starting">
@@ -53,7 +53,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="form-group">
 
-                            <label for="exampleInputDestination">
+                            <label for="exampleInputDestination" class="text-white">
                                 目的地：&nbsp;&nbsp;
                             </label>
                             <input type="text" class="form-control" id="destination">
@@ -66,7 +66,7 @@
                     <br><br>
                     <table class="table table-hover table-striped">
                         <thead>
-                        <tr>
+                        <tr class="table-danger">
                             <th>
                                 #
                             </th>
@@ -82,7 +82,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr class="table-success">
                             <td>
                                 1
                             </td>
@@ -96,7 +96,7 @@
                                 Default
                             </td>
                         </tr>
-                        <tr class="table-active">
+                        <tr class="table-warning">
                             <td>
                                 1
                             </td>

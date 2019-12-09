@@ -1,1 +1,16 @@
 /*# Empty CSS file for your own CSS*/
+/*body {*/
+/*    background-image: url("../images/background.png");*/
+/*    background-position: center 0;*/
+/*    background-repeat: no-repeat;*/
+/*    background-attachment: fixed;*/
+/*    background-size: cover;*/
+/*    -webkit-background-size: cover;*/
+/*    -o-background-size: cover;*/
+/*    -moz-background-size: cover;*/
+/*    -ms-background-size: cover;*/
+/*}*/
+.bg {
+       background:url("../images/background.png") no-repeat fixed;
+       background-size:cover;
+}
