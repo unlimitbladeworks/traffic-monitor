@@ -74,7 +74,20 @@ https://restapi.amap.com/v3/place/text
 
 由于结构目录已调整，有想在原有基础修改源码的同学，可以打开 app 目录下的 old_run.py 即可运行。
 
+新运行方式，flask启动，进入到app：
 
+1. 命令行方式：
+
+``` python
+python run.py
+```
+
+2. 直接开发工具中，执行 run.py 
+
+```
+# 访问首页地址,能看到前端页面
+http://127.0.0.1:8888/index
+```
 
 Todo List
 ---
