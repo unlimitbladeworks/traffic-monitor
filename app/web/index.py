@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 @Author  : Sy
-@File    : hello.py
+@File    : index.py
 @Time    : 2019-11-17 10:52
 @desc    :
 """
 from flask import render_template
-
 from . import web
 
 

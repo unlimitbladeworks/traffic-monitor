@@ -16,4 +16,4 @@ def not_found(e):
     return render_template('404.html')
 
 
-from . import hello
+from . import index
