@@ -7,11 +7,14 @@
 """
 from flask import render_template
 from . import web
+from app import mongo
 
 
 @web.route('/hello')
 def hello():
-    return 'hello world'
+    result = mongo.db.traffic.find()  # 文档插入集合
+    result_list = str([el for el in result])
+    return result_list
 
 
 @web.route('/index')
