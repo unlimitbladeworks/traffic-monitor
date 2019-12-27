@@ -6,12 +6,17 @@
 @desc    : 初始化 app 应用
 """
 from flask import Flask
+from flask_pymongo import PyMongo
+
+mongo = PyMongo()
 
 
 def create_app():
     app = Flask(__name__)
     # app.config.from_object('app.secure')
     app.config.from_object('app.setting')
+    # 初始化mongodb
+    mongo.init_app(app)
     # 注册蓝图
     register_blueprint(app)
     return app
