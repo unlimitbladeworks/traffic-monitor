@@ -12,12 +12,14 @@
 import os
 import sys
 
+""" 加载包变量 """
+
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_PATH)
+sys.path.append(BASE_PATH)
+
 from app.data_source.amap_api import ReadMapInfo
 from apscheduler.schedulers.blocking import BlockingScheduler
-
-""" 加载包变量 """
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(BASE_PATH)
 
 
 # 手工处理,人工介入的定时任务
